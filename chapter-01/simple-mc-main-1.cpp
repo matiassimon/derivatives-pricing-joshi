@@ -62,5 +62,5 @@ main ()
   double result
       = simple_montecarlo_1 (expirity, strike, spot, vol, r, number_of_paths);
 
-  cout << "the price is " << result << endl;
+  cout << "The price is " << result << endl;
 }
