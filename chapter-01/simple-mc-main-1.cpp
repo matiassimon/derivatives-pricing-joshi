@@ -21,7 +21,7 @@ simple_montecarlo_1 (double expirity, double strike, double spot, double vol,
     {
       double this_gaussian = get_one_gaussian_by_box_muller ();
       this_spot = moved_spot * exp (root_variance * this_gaussian);
-      double this_payoff = this_spot - strike;
+      double this_payoff = strike - this_spot;
       this_payoff = this_payoff > 0 ? this_payoff : 0;
       running_sum += this_payoff;
     }
