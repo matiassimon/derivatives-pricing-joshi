@@ -1,7 +1,7 @@
 #include <cmath>
 #include <iostream>
 
-#include "random-1.hpp"
+#include "chapter-01/random-1.hpp"
 
 using namespace std;
 
