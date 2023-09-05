@@ -1,3 +1,3 @@
-FROM mcr.microsoft.com/devcontainers/base:alpine-3.18
+FROM alpine:3.18
 # RUN apk update
-RUN apk add build-base
+RUN apk add mandoc man-pages git git-doc build-base cmake
