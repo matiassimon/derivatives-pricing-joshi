@@ -12,10 +12,14 @@ payoff::operator() (double spot) const
 {
   switch (type_)
     {
-    case option_type::call:
+    case option_type::european_call:
       return std::max (spot - strike_, 0.0);
-    case option_type::put:
+    case option_type::european_put:
       return std::max (strike_ - spot, 0.0);
+    case option_type::digital_call:
+      return spot > strike_ ? 1.0 : 0.0;
+    case option_type::digital_put:
+      return spot > strike_ ? 0.0 : 1.0;
     default:
       throw ("unknown option type found");
     }

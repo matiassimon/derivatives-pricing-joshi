@@ -6,8 +6,10 @@ class payoff
 public:
   enum option_type
   {
-    call,
-    put
+    european_call,
+    european_put,
+    digital_call,
+    digital_put
   };
 
   payoff (double strike, option_type type);

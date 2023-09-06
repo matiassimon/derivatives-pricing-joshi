@@ -32,15 +32,27 @@ main ()
   cout << "Enter number of paths" << endl;
   cin >> number_of_paths;
 
-  payoff po_call (strike, payoff::call);
-  payoff po_put (strike, payoff::put);
+  payoff po_eu_call (strike, payoff::european_call);
+  payoff po_eu_put (strike, payoff::european_put);
+  payoff po_dig_call (strike, payoff::digital_call);
+  payoff po_dig_put (strike, payoff::digital_put);
 
-  double result_call = simple_monte_carlo_2 (po_call, expirity, spot, vol, r,
-                                             number_of_paths);
+  double result_eu_call = simple_monte_carlo_2 (po_eu_call, expirity, spot,
+                                                vol, r, number_of_paths);
 
-  double result_put
-      = simple_monte_carlo_2 (po_put, expirity, spot, vol, r, number_of_paths);
+  double result_eu_put = simple_monte_carlo_2 (po_eu_put, expirity, spot, vol,
+                                               r, number_of_paths);
 
-  cout << "The prices are " << result_call << " for the call and "
-       << result_put << " for the put" << endl;
+  double result_dig_call = simple_monte_carlo_2 (po_dig_call, expirity, spot,
+                                                vol, r, number_of_paths);
+
+  double result_dig_put = simple_monte_carlo_2 (po_dig_put, expirity, spot, vol,
+                                               r, number_of_paths);
+
+  cout << "The prices for European options are " << result_eu_call << " for the call and "
+       << result_eu_put << " for the put" << endl;
+
+  cout << "The prices for digital options are " << result_dig_call << " for the call and "
+       << result_dig_put << " for the put" << endl;
+       
 }
