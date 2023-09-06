@@ -2,21 +2,13 @@
 
 #include "payoff-1.hpp"
 
-payoff::payoff (double strike, option_type type)
-    : strike_ (strike), type_ (type)
+payoff::payoff (double lower_strike, double upper_strike)
+    : lower_strike_ (lower_strike), upper_strike_ (upper_strike)
 {
 }
 
 double
 payoff::operator() (double spot) const
 {
-  switch (type_)
-    {
-    case option_type::call:
-      return std::max (spot - strike_, 0.0);
-    case option_type::put:
-      return std::max (strike_ - spot, 0.0);
-    default:
-      throw ("unknown option type found");
-    }
+  return spot > lower_strike_ && spot < upper_strike_ ? 1.0 : 0.0;
 }

@@ -8,7 +8,8 @@ int
 main ()
 {
   double expirity;
-  double strike;
+  double lower_strike;
+  double upper_strike;
   double spot;
   double vol;
   double r;
@@ -17,8 +18,11 @@ main ()
   cout << "Enter expirity" << endl;
   cin >> expirity;
 
-  cout << "Enter strike" << endl;
-  cin >> strike;
+  cout << "Enter lower strike" << endl;
+  cin >> lower_strike;
+
+  cout << "Enter upper strike" << endl;
+  cin >> upper_strike;
 
   cout << "Enter spot" << endl;
   cin >> spot;
@@ -32,15 +36,10 @@ main ()
   cout << "Enter number of paths" << endl;
   cin >> number_of_paths;
 
-  payoff po_call (strike, payoff::call);
-  payoff po_put (strike, payoff::put);
+  payoff po (lower_strike, upper_strike);
 
-  double result_call = simple_monte_carlo_2 (po_call, expirity, spot, vol, r,
-                                             number_of_paths);
+  double result
+      = simple_monte_carlo_2 (po, expirity, spot, vol, r, number_of_paths);
 
-  double result_put
-      = simple_monte_carlo_2 (po_put, expirity, spot, vol, r, number_of_paths);
-
-  cout << "The prices are " << result_call << " for the call and "
-       << result_put << " for the put" << endl;
+  cout << "The price is " << result << endl;
 }
