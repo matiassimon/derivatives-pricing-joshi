@@ -6,7 +6,7 @@
 using namespace std;
 
 double
-simple_monte_carlo_2 (const payoff po, double expirity, double spot,
+simple_monte_carlo_2 (const payoff& po, double expirity, double spot,
                       double vol, double r, unsigned long number_of_paths)
 {
   double variance = vol * vol * expirity;
