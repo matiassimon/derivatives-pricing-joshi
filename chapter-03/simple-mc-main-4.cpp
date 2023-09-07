@@ -32,17 +32,19 @@ main ()
   cout << "Enter number of paths" << endl;
   cin >> number_of_paths;
 
-  unsigned long option_type;
+  string option_type;
 
-  cout << "Enter 0 for call, otherwise put" << endl;
+  cout << "Enter option type ('eu_call'/'eu_put': European call/put)" << endl;
   cin >> option_type;
 
   payoff *po;
 
-  if (option_type == 0)
+  if (option_type == "eu_call")
     po = new payoff_call (strike);
-  else
+  else if (option_type == "eu_put")
     po = new payoff_put (strike);
+  else
+    throw runtime_error("invalid option type");
 
   double result
       = simple_monte_carlo_2 (*po, expirity, spot, vol, r, number_of_paths);
