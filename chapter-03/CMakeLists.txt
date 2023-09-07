@@ -1,5 +1,6 @@
 add_executable (chapter-03-0
                 payoff-2.cpp
+                power.cpp
                 simple-mc-2.cpp
                 simple-mc-main-3.cpp
                 ${CMAKE_SOURCE_DIR}/chapter-01/random-1.cpp)

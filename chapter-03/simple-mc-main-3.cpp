@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "simple-mc-2.hpp"
+#include "power.hpp"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ main ()
   double vol;
   double r;
   unsigned long number_of_paths;
+  double i;
 
   cout << "Enter expirity" << endl;
   cin >> expirity;
@@ -32,8 +34,11 @@ main ()
   cout << "Enter number of paths" << endl;
   cin >> number_of_paths;
 
-  payoff_call po_call (strike);
-  payoff_put po_put (strike);
+  cout << "Enter power i" << endl;
+  cin >> i;
+
+  payoff_power_call po_call (i, strike);
+  payoff_power_put po_put (i, strike);
 
   double result_call = simple_monte_carlo_2 (po_call, expirity, spot, vol, r,
                                              number_of_paths);
@@ -41,6 +46,6 @@ main ()
   double result_put
       = simple_monte_carlo_2 (po_put, expirity, spot, vol, r, number_of_paths);
 
-  cout << "The prices are " << result_call << " for the call and "
+  cout << "The prices for power options are " << result_call << " for the call and "
        << result_put << " for the put" << endl;
 }
