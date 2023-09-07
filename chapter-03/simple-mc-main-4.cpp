@@ -48,4 +48,6 @@ main ()
       = simple_monte_carlo_2 (*po, expirity, spot, vol, r, number_of_paths);
 
   cout << "The price is " << result << endl;
+
+  delete po;
 }
