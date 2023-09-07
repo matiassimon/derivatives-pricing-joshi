@@ -1,5 +1,5 @@
-#ifndef SIMPLEMC_HPP
-#define SIMPLEMC_HPP
+#ifndef SIMPLEMC2_HPP
+#define SIMPLEMC2_HPP
 
 #include "payoff-2.hpp"
 
