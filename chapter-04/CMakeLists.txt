@@ -18,4 +18,16 @@ add_executable (chapter-04-1
                 payoff-3.cpp
                 ${CMAKE_SOURCE_DIR}/chapter-01/random-1.cpp)
 
+add_executable (chapter-04-2
+                vanilla-3.hpp
+                vanilla-3.cpp
+                simple-mc-5.hpp
+                simple-mc-5.cpp
+                vanilla-main-3.cpp
+                payoff-3.hpp
+                payoff-3.cpp
+                payoff-bridge.hpp
+                payoff-bridge.cpp
+                ${CMAKE_SOURCE_DIR}/chapter-01/random-1.cpp)
+
 # target_include_directories(chapter-02 PRIVATE ${CMAKE_SOURCE_DIR})
