@@ -1,5 +1,5 @@
-#ifndef SIMPLEMC4_HPP
-#define SIMPLEMC4_HPP
+#ifndef SIMPLEMC5_HPP
+#define SIMPLEMC5_HPP
 
 #include "vanilla-3.hpp"
 
