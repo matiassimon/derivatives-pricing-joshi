@@ -1,6 +1,8 @@
 #ifndef PARAMETERS_HPP
 #define PARAMETERS_HPP
 
+#include <memory>
+
 class parameters_inner
 {
 public:
@@ -15,9 +17,15 @@ class parameters
 {
 public:
   parameters (const parameters_inner &inner_object);
+  virtual ~parameters ();
+
+  // Movable
+  parameters (parameters &&original);
+  parameters &operator= (parameters &&original);
+
+  // Copyable
   parameters (const parameters &original);
   parameters &operator= (const parameters &original);
-  virtual ~parameters ();
 
   inline double integral (double time_1, double time_2) const;
   inline double integral_square (double time_1, double time_2) const;
@@ -26,7 +34,7 @@ public:
   double root_mean_square (double time_1, double time_2) const;
 
 private:
-  parameters_inner *inner_object_;
+  std::unique_ptr<parameters_inner> inner_object_;
 };
 
 inline double

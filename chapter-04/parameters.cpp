@@ -2,23 +2,26 @@
 
 parameters::parameters (const parameters_inner &inner_object)
 {
-  inner_object_ = inner_object.clone ();
+  inner_object_.reset (inner_object.clone ());
 }
+
+parameters::~parameters () = default;
+
+parameters::parameters (parameters &&original) = default;
+
+parameters &parameters::operator= (parameters &&original) = default;
 
 parameters::parameters (const parameters &original)
 {
-  inner_object_ = original.inner_object_->clone ();
+  inner_object_.reset (original.inner_object_->clone ());
 }
-
-parameters::~parameters () { delete inner_object_; }
 
 parameters &
 parameters::operator= (const parameters &original)
 {
   if (this != &original)
     {
-      delete inner_object_;
-      inner_object_ = original.inner_object_->clone ();
+      inner_object_.reset (original.inner_object_->clone ());
     }
 
   return *this;
