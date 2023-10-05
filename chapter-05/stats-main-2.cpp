@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "chapter-04/vanilla-3.hpp"
+#include "convergence-table.hpp"
 #include "mc-statistics.hpp"
 #include "simple-mc-7.hpp"
 
@@ -42,11 +43,12 @@ main ()
   parameters_constant r_param (r);
 
   statistics_mean gatherer;
+  convergence_table gatherer_two (gatherer);
 
   simple_monte_carlo_5 (option, spot, vol_param, r_param, number_of_paths,
-                        gatherer);
+                        gatherer_two);
 
-  vector<vector<double>> results = gatherer.get_results_so_far ();
+  vector<vector<double>> results = gatherer_two.get_results_so_far ();
 
   cout << "For the call price the results are " << endl;
 

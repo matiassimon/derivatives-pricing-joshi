@@ -17,10 +17,10 @@ statistics_mean::dump_one_result (double result)
   running_sum_ += result;
 }
 
-vector<vector<double> >
+vector<vector<double>>
 statistics_mean::get_results_so_far () const
 {
-  vector<vector<double> > results (1);
+  vector<vector<double>> results (1);
   results[0].resize (1);
   results[0][0] = running_sum_ / paths_done_;
 

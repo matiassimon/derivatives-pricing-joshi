@@ -11,7 +11,7 @@ public:
 
   virtual statistics_mc *clone () const = 0;
   virtual void dump_one_result (double result) = 0;
-  virtual std::vector<std::vector<double> > get_results_so_far () const = 0;
+  virtual std::vector<std::vector<double>> get_results_so_far () const = 0;
 };
 
 class statistics_mean : public statistics_mc
@@ -21,7 +21,7 @@ public:
 
   virtual statistics_mc *clone () const override;
   virtual void dump_one_result (double result) override;
-  virtual std::vector<std::vector<double> >
+  virtual std::vector<std::vector<double>>
   get_results_so_far () const override;
 
 private:
